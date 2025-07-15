@@ -34,13 +34,13 @@ export default function AboutUsSection() {
           >
             <div>
               <h2 className="text-4xl font-bold text-gray-900 mb-6">
-                Transforming Nigerian Aquaculture
+                Transforming Aquaculture Through Practical Knowledge
               </h2>
               <p className="text-lg text-gray-600 mb-6">
-                Animal Bank Konsult Services is Nigeria's leading aquaculture consultancy, dedicated to empowering fish farmers with the knowledge, tools, and support needed to build profitable and sustainable farming operations.
+                Animal Bank Konsult Services is a Nigerian-based aquaculture training and consultancy company committed to equipping fish farmers with the practical skills, business knowledge, and tools needed to build profitable and sustainable fish farms.
               </p>
               <p className="text-lg text-gray-600">
-                Our team combines decades of practical experience with cutting-edge aquaculture techniques, ensuring our clients achieve maximum productivity while maintaining environmental sustainability.
+                We combine real-world farming experience with proven methods tailored to local conditions — delivering hands-on training, technical guidance, and modern fish farming solutions that support long-term success.
               </p>
             </div>
 

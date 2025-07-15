@@ -10,11 +10,11 @@ export const aboutUsStatisticsData = [
   export const aboutUsSectionValues = [
     {
       title: "Local Expertise",
-      description: "Deep understanding of Nigerian aquaculture challenges and opportunities"
+      description: "Deep understanding of unique challenges of Nigerian aquaculture and provide context-specific training to help farmers thrive."
     },
     {
       title: "Proven Methods",
-      description: "Time-tested techniques adapted for local conditions and market demands"
+      description: "Time-tested techniques in hatchery management, water quality, feeding, and disease control — all adapted to real market needs."
     },
     {
       title: "Continuous Support",
@@ -22,6 +22,6 @@ export const aboutUsStatisticsData = [
     },
     {
       title: "Innovation Focus",
-      description: "Integrating modern technology with traditional farming wisdom"
+      description: "Integrating modern technology with traditional farming wisdom for a balanced and efficient farming model."
     }
   ];

@@ -22,14 +22,12 @@ export default function Header() {
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.5 }}
       className={`fixed top-0 w-full z-50 ${
-        isScrolled 
-          ? "text-white"
-          : "bg-white"
-      } lg:transition-[background] lg:duration-500 md:ease-in-out lg:bg-transparent ${isMenuOpen? "rounded-br-4xl rounded-bl-4xl": ""}`}
+        isScrolled ? "text-white" : "bg-white"
+      } lg:transition-[background] lg:duration-500 md:ease-in-out lg:bg-transparent ${
+        isMenuOpen ? "rounded-br-4xl rounded-bl-4xl" : ""
+      }`}
       style={{
-        background: isScrolled 
-          ? "#111827"
-          : undefined
+        background: isScrolled ? "#111827" : undefined,
       }}
     >
       <div className="container mx-auto px-4 py-6">
@@ -54,10 +52,18 @@ export default function Header() {
               animate={{ opacity: 1 }}
               transition={{ delay: 0.3 }}
             >
-              <h1 className={`text-xl font-bold ${isScrolled ? "text-white" : "text-gray-900"}`}>
+              <h1
+                className={`text-xl font-bold ${
+                  isScrolled ? "text-white" : "text-gray-900"
+                }`}
+              >
                 Animal Bank Konsult
               </h1>
-              <p className={`text-xs ${isScrolled ? "text-gray-100" : "text-gray-600"}`}>
+              <p
+                className={`text-xs ${
+                  isScrolled ? "text-gray-100" : "text-gray-600"
+                }`}
+              >
                 Services
               </p>
             </motion.div>
@@ -73,7 +79,9 @@ export default function Header() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.4 + index * 0.1 }}
                 className={`transition-colors ${
-                  isScrolled ? "text-white hover:text-white/80" : "text-gray-700 hover:text-[#3c8d66]"
+                  isScrolled
+                    ? "text-white hover:text-white/80"
+                    : "text-gray-700 hover:text-[#3c8d66]"
                 }`}
               >
                 {label}
@@ -91,15 +99,23 @@ export default function Header() {
           </nav>
 
           {/* Mobile Menu Button */}
-          <motion.button
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.3 }}
-            className={`lg:hidden p-2 rounded-lg cursor-pointer ${isScrolled? "bg-[#3c8d66]": "bg-gray-100"}`}
-          >
-            {isMenuOpen ? <X className="w-8 h-8" /> : <Menu className="w-8 h-8" />}
-          </motion.button>
+          <div className="lg:hidden">
+            <motion.button
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.3 }}
+              className={`!p-1 rounded-lg cursor-pointer hamburger hamburger--collapse ${
+                isMenuOpen ? "is-active" : ""
+              } 
+              ${isScrolled ? "! bg-[#3c8d66]" : "! bg-gray-100"}`}
+              type="button"
+            >
+              <span className="hamburger-box" style={{ transform: 'scale(0.7)' }}>
+                <span className="hamburger-inner"></span>
+              </span>
+            </motion.button>
+          </div>
         </div>
 
         {/* Mobile Navigation */}
@@ -110,12 +126,16 @@ export default function Header() {
             transition={{ duration: 0.3 }}
             className="lg:hidden overflow-hidden"
           >
-            <div className={`flex flex-col space-y-4 mt-4 py-4 border-t border-gray-200 `}>
+            <div
+              className={`flex flex-col space-y-4 mt-4 py-4 border-t border-gray-200 `}
+            >
               {navLinks.map(({ href, label }) => (
                 <a
                   key={href}
                   href={href}
-                  className={`hover:text-[#3c8d66] ${isScrolled? "text-white": "text-gray-700"}`}
+                  className={`hover:text-[#3c8d66] ${
+                    isScrolled ? "text-white" : "text-gray-700"
+                  }`}
                   onClick={() => setIsMenuOpen(false)}
                 >
                   {label}
