@@ -48,7 +48,9 @@ export default function ContactSection() {
           transition={{ duration: 0.8, ease: "easeOut", delay: 0.3 }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl font-bold text-gray-900 mb-4">Get In Touch</h2>
+          <h2 className="text-4xl font-bold text-gray-900 mb-4">
+            Get In Touch
+          </h2>
           <p className="md:text-xl text-gray-600 max-w-2xl mx-auto">
             Ready to start your fish farming journey? Contact us for expert
             consultation and support.
@@ -59,14 +61,10 @@ export default function ContactSection() {
           {/* Contact Info Section */}
           <motion.div
             initial={
-              isLargeScreen
-                ? { opacity: 0, x: -40 }
-                : { opacity: 0, y: 40 }
+              isLargeScreen ? { opacity: 0, x: -40 } : { opacity: 0, y: 40 }
             }
             whileInView={
-              isLargeScreen
-                ? { opacity: 1, x: 0 }
-                : { opacity: 1, y: 0 }
+              isLargeScreen ? { opacity: 1, x: 0 } : { opacity: 1, y: 0 }
             }
             transition={{ duration: 0.7, delay: 0.4 }}
             className="space-y-8"
@@ -130,27 +128,24 @@ export default function ContactSection() {
           </motion.div>
 
           {/* Contact Form Section */}
-          <motion.div
-            initial={
-              isLargeScreen
-                ? { opacity: 0, x: 40 }
-                : { opacity: 0, y: 40 }
-            }
-            whileInView={
-              isLargeScreen
-                ? { opacity: 1, x: 0 }
-                : { opacity: 1, y: 0 }
-            }
-            transition={{ duration: 0.7, delay: 0.5 }}
-            className="bg-gray-50 p-8 rounded-2xl"
-          >
+          <div className="bg-gray-50 p-8 rounded-2xl">
             <h3 className="text-2xl font-bold text-gray-900 mb-6">
               Send us a Message
             </h3>
             <form onSubmit={handleSubmit} className="space-y-6">
-              <div className="grid md:grid-cols-2 gap-6">
+              {/* Name and Email */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.3 }}
+                viewport={{ once: true }}
+                className="grid md:grid-cols-2 gap-6"
+              >
                 <div>
-                  <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
+                  <label
+                    htmlFor="name"
+                    className="block text-sm font-medium text-gray-700 mb-2"
+                  >
                     Full Name *
                   </label>
                   <input
@@ -165,7 +160,10 @@ export default function ContactSection() {
                   />
                 </div>
                 <div>
-                  <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
+                  <label
+                    htmlFor="email"
+                    className="block text-sm font-medium text-gray-700 mb-2"
+                  >
                     Email Address *
                   </label>
                   <input
@@ -179,11 +177,21 @@ export default function ContactSection() {
                     placeholder="Enter your email"
                   />
                 </div>
-              </div>
+              </motion.div>
 
-              <div className="grid md:grid-cols-2 gap-6">
+              {/* Phone and Service */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.4 }}
+                viewport={{ once: true }}
+                className="grid md:grid-cols-2 gap-6"
+              >
                 <div>
-                  <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-2">
+                  <label
+                    htmlFor="phone"
+                    className="block text-sm font-medium text-gray-700 mb-2"
+                  >
                     Phone Number
                   </label>
                   <input
@@ -197,7 +205,10 @@ export default function ContactSection() {
                   />
                 </div>
                 <div>
-                  <label htmlFor="service" className="block text-sm font-medium text-gray-700 mb-2">
+                  <label
+                    htmlFor="service"
+                    className="block text-sm font-medium text-gray-700 mb-2"
+                  >
                     Service Interest
                   </label>
                   <select
@@ -217,10 +228,19 @@ export default function ContactSection() {
                     ))}
                   </select>
                 </div>
-              </div>
+              </motion.div>
 
-              <div>
-                <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-2">
+              {/* Message */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.5 }}
+                viewport={{ once: true }}
+              >
+                <label
+                  htmlFor="message"
+                  className="block text-sm font-medium text-gray-700 mb-2"
+                >
                   Message *
                 </label>
                 <textarea
@@ -233,17 +253,25 @@ export default function ContactSection() {
                   className="w-full px-4 py-3 rounded-lg border bg-white border-gray-300 focus:border-[#3c8d66] focus:outline-none focus:ring-2 focus:ring-[#B3DFC1] resize-none"
                   placeholder="Tell us about your fish farming goals and how we can help..."
                 ></textarea>
-              </div>
+              </motion.div>
 
-              <button
-                type="submit"
-                className="w-full bg-[#3c8d66] text-white py-4 rounded-lg font-semibold hover:bg-[#327657] transition-colors flex items-center justify-center space-x-2 cursor-pointer"
+              {/* Submit Button */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.6 }}
+                viewport={{ once: true }}
               >
-                <Send className="w-5 h-5" />
-                <span>Send Message</span>
-              </button>
+                <button
+                  type="submit"
+                  className="w-full bg-[#3c8d66] text-white py-4 rounded-lg font-semibold hover:bg-[#327657] transition-colors flex items-center justify-center space-x-2 cursor-pointer"
+                >
+                  <Send className="w-5 h-5" />
+                  <span>Send Message</span>
+                </button>
+              </motion.div>
             </form>
-          </motion.div>
+          </div>
         </div>
       </div>
     </section>
