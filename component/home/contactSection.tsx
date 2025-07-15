@@ -27,7 +27,7 @@ export default function ContactSection() {
   };
 
   return (
-    <section id="contact" className="py-28 bg-white">
+    <section id="contact" className="py-28 bg-white overflow-hidden">
       <div className="container mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 60 }}
