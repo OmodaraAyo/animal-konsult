@@ -102,19 +102,19 @@ export default function Header() {
           </nav>
 
           {/* Mobile Menu Button */}
-          <div className="lg:hidden">
+          <div className="lg:hidden flex items-center justify-center w-12 h-12">
             <motion.button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.3 }}
-              className={`!p-1 rounded-lg cursor-pointer hamburger hamburger--collapse ${
+              className={`rounded-lg cursor-pointer hamburger hamburger--collapse ${
                 isMenuOpen ? "is-active" : ""
               } 
-              ${isScrolled ? "! bg-[#3c8d66]" : "! bg-gray-100"}`}
+              ${isScrolled ? " bg-[#3c8d66]" : " bg-gray-100"}`}
               type="button"
             >
-              <span className="hamburger-box" style={{ transform: 'scale(0.7)' }}>
+              <span className="hamburger-box grid place-items-center">
                 <span className="hamburger-inner"></span>
               </span>
             </motion.button>
@@ -129,9 +129,7 @@ export default function Header() {
             transition={{ duration: 0.3 }}
             className="lg:hidden overflow-hidden"
           >
-            <div
-              className={`flex flex-col space-y-4 mt-4 py-4 border-t border-gray-200 `}
-            >
+            <div className={`flex flex-col space-y-4 mt-4 py-4 border-t border-gray-200`}>
               {navLinks.map(({ href, label }) => (
                 <button
                   key={href}
@@ -139,7 +137,7 @@ export default function Header() {
                   smoothScrollTo(href.replace('#', ''));
                   setIsMenuOpen(false)
                 }}
-                  className={`hover:text-[#3c8d66] cursor-pointer transition-colors${
+                  className={`hover:text-[#3c8d66] cursor-pointer transition-colors text-left ${
                     isScrolled ? "text-white" : "text-gray-700"
                   }`}
                 >
