@@ -37,7 +37,7 @@ export default function ContactSection() {
           className="text-center mb-16"
         >
           <h2 className="text-4xl font-bold text-gray-900 mb-4">Get In Touch</h2>
-          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+          <p className="md:text-xl text-gray-600 max-w-2xl mx-auto">
             Ready to start your fish farming journey? Contact us for expert consultation and support.
           </p>
         </motion.div>

@@ -167,7 +167,7 @@ export default function HeroSection() {
             </div>
 
             {/* Floating Cards */}
-            <div className="absolute -top-4 -right-4 bg-white p-4 rounded-xl shadow-lg z-20 floating-card">
+            <div className="absolute -top-4 -right-1 md:-right-4 bg-white p-4 rounded-xl shadow-lg z-20 floating-card">
               <div className="flex items-center space-x-2">
                 <div className="w-3 h-3 bg-green-500 rounded-full animate-pulse"></div>
                 <span className="text-sm font-medium text-gray-700">
@@ -177,7 +177,7 @@ export default function HeroSection() {
               <div className="text-2xl font-bold text-gray-900 mt-1">24/7</div>
             </div>
 
-            <div className="absolute -bottom-4 -left-4 bg-white p-4 rounded-xl shadow-lg z-20 floating-card">
+            <div className="absolute -bottom-4 md:-left-4 bg-white p-4 rounded-xl shadow-lg z-20 floating-card">
               <div className="text-sm text-gray-600">Monthly Revenue</div>
               <div className="text-2xl font-bold text-green-600">₦2.5M+</div>
             </div>

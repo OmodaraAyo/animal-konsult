@@ -108,14 +108,12 @@ export default function Header() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.3 }}
-              className={`rounded-lg cursor-pointer hamburger hamburger--collapse ${
-                isMenuOpen ? "is-active" : ""
-              } 
-              ${isScrolled ? " bg-[#3c8d66]" : " bg-gray-100"}`}
+              className={`rounded-lg cursor-pointer hamburger hamburger--collapse ${isMenuOpen ? "is-active" : ""} 
+              ${isScrolled ? " bg-[#3c8d66]" : " bg-gray-100"} custom-hamburger-color`}
               type="button"
             >
-              <span className="hamburger-box grid place-items-center">
-                <span className="hamburger-inner"></span>
+              <span className="hamburger-box grid place-items-center" style={{ transform: "scale(0.8)" }}>
+                <span className="hamburger-inner" style={{ ['--burger-color' as any]: isScrolled ? '#ffffff' : '#111827' }}></span>
               </span>
             </motion.button>
           </div>

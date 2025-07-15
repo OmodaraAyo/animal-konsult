@@ -4,3 +4,11 @@
 html {
   scroll-behavior: smooth;
 }
+.custom-hamburger-color .hamburger-inner,
+.custom-hamburger-color .hamburger-inner::before,
+.custom-hamburger-color .hamburger-inner::after,
+.custom-hamburger-color.is-active .hamburger-inner,
+.custom-hamburger-color.is-active .hamburger-inner::before,
+.custom-hamburger-color.is-active .hamburger-inner::after {
+  background-color: var(--burger-color) !important;
+}

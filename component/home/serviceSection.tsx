@@ -31,7 +31,7 @@ export default function ServiceSection() {
             Our Services
           </h2>
           <p
-            className="text-xl text-gray-600 max-w-3xl mx-auto"
+            className="md:text-xl text-gray-600 max-w-3xl mx-auto"
           >
             Comprehensive aquaculture solutions tailored to help you succeed in
             Nigeria's growing fish farming industry
