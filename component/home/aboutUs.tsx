@@ -86,7 +86,6 @@ export default function AboutUsSection() {
               initial={{ opacity: 0, scale: 0.95 }}
               whileInView={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.7, ease: "easeOut", delay: 0.3 }}
-              // viewport={{ once: true }}
               className="relative"
             >
               <img
