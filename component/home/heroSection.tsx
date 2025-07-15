@@ -85,7 +85,7 @@ export default function HeroSection() {
               >
                 Fish Farming
               </motion.span>
-              Dreams Into Reality
+              Dreams Into Impact
             </motion.h1>
 
             <motion.p
