@@ -1,28 +1,41 @@
 "use client";
 
-import React, { useState } from 'react';
-import { Phone, Mail, MapPin, Clock, Send } from 'lucide-react';
-import { contactInfo, serviceOptions } from '@/data/contact';
-import { motion } from 'framer-motion';
+import React, { useEffect, useState } from "react";
+import { Phone, Mail, MapPin, Clock, Send } from "lucide-react";
+import { contactInfo, serviceOptions } from "@/data/contact";
+import { motion } from "framer-motion";
 
 export default function ContactSection() {
   const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    phone: '',
-    service: '',
-    message: ''
+    name: "",
+    email: "",
+    phone: "",
+    service: "",
+    message: "",
   });
+
+  const [isLargeScreen, setIsLargeScreen] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => setIsLargeScreen(window.innerWidth >= 1024);
+    handleScroll();
+    window.addEventListener("resize", handleScroll);
+    return () => window.removeEventListener("resize", handleScroll);
+  }, []);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    console.log('Form submitted:', formData);
+    console.log("Form submitted:", formData);
   };
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+  const handleChange = (
+    e: React.ChangeEvent<
+      HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
+    >
+  ) => {
     setFormData({
       ...formData,
-      [e.target.name]: e.target.value
+      [e.target.name]: e.target.value,
     });
   };
 
@@ -33,58 +46,82 @@ export default function ContactSection() {
           initial={{ opacity: 0, y: 60 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: "easeOut", delay: 0.3 }}
-          // viewport={{ once: true }}
           className="text-center mb-16"
         >
           <h2 className="text-4xl font-bold text-gray-900 mb-4">Get In Touch</h2>
           <p className="md:text-xl text-gray-600 max-w-2xl mx-auto">
-            Ready to start your fish farming journey? Contact us for expert consultation and support.
+            Ready to start your fish farming journey? Contact us for expert
+            consultation and support.
           </p>
         </motion.div>
 
         <div className="grid lg:grid-cols-2 gap-16">
-          {/* Contact Info */}
+          {/* Contact Info Section */}
           <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6, ease: "easeOut", delay: 0.4 }}
-            // viewport={{ once: true }}
+            initial={
+              isLargeScreen
+                ? { opacity: 0, x: -40 }
+                : { opacity: 0, y: 40 }
+            }
+            whileInView={
+              isLargeScreen
+                ? { opacity: 1, x: 0 }
+                : { opacity: 1, y: 0 }
+            }
+            transition={{ duration: 0.7, delay: 0.4 }}
             className="space-y-8"
           >
             <div>
-              <h3 className="text-2xl font-bold text-gray-900 mb-6">Contact Information</h3>
+              <h3 className="text-2xl font-bold text-gray-900 mb-6">
+                Contact Information
+              </h3>
               <div className="space-y-6">
                 {contactInfo.map((info, index) => (
-                  <div key={index} className="flex items-start space-x-4">
+                  <motion.div
+                    key={index}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{
+                      duration: 0.5,
+                      delay: 0.2 + index * 0.1,
+                    }}
+                    className="flex items-start space-x-4"
+                  >
                     <div className="bg-[#E6F4EA] p-3 rounded-lg">
                       <div className="text-[#3c8d66]">
                         <info.icon className="w-6 h-6" />
                       </div>
                     </div>
                     <div className="flex-1">
-                      <h4 className="font-semibold text-gray-900 mb-1">{info.title}</h4>
+                      <h4 className="font-semibold text-gray-900 mb-1">
+                        {info.title}
+                      </h4>
                       {info.details.map((detail, detailIndex) => (
-                        <p key={detailIndex} className="text-gray-600">{detail}</p>
+                        <p key={detailIndex} className="text-gray-600">
+                          {detail}
+                        </p>
                       ))}
                       <button className="text-[#3c8d66] hover:text-[#226F3B] text-sm font-medium mt-1 cursor-pointer">
                         {info.action} →
                       </button>
                     </div>
-                  </div>
+                  </motion.div>
                 ))}
               </div>
             </div>
 
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.8 }}
-              // viewport={{ once: true }}
+              initial={{ opacity: 0, scale: 0.95 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.5, delay: 0.7 }}
               className="bg-[#E6F4EA] p-8 rounded-2xl"
             >
-              <h4 className="text-xl font-bold text-gray-900 mb-4">Ready to Get Started?</h4>
+              <h4 className="text-xl font-bold text-gray-900 mb-4">
+                Ready to Get Started?
+              </h4>
               <p className="text-gray-600 mb-6">
-                Book a free consultation with our aquaculture experts and take the first step towards successful fish farming.
+                Book a free consultation with our aquaculture experts and take
+                the first step towards successful fish farming.
               </p>
               <button className="bg-[#3c8d66] text-white px-6 py-3 rounded-lg hover:bg-[#327657] transition-colors duration-300 ease-in-out cursor-pointer">
                 Book Free Consultation
@@ -92,19 +129,30 @@ export default function ContactSection() {
             </motion.div>
           </motion.div>
 
-          {/* Contact Form */}
+          {/* Contact Form Section */}
           <motion.div
-            initial={{ opacity: 0, x: 30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6, ease: "easeOut", delay: 0.4 }}
-            // viewport={{ once: true }}
+            initial={
+              isLargeScreen
+                ? { opacity: 0, x: 40 }
+                : { opacity: 0, y: 40 }
+            }
+            whileInView={
+              isLargeScreen
+                ? { opacity: 1, x: 0 }
+                : { opacity: 1, y: 0 }
+            }
+            transition={{ duration: 0.7, delay: 0.5 }}
             className="bg-gray-50 p-8 rounded-2xl"
           >
-            <h3 className="text-2xl font-bold text-gray-900 mb-6">Send us a Message</h3>
+            <h3 className="text-2xl font-bold text-gray-900 mb-6">
+              Send us a Message
+            </h3>
             <form onSubmit={handleSubmit} className="space-y-6">
               <div className="grid md:grid-cols-2 gap-6">
                 <div>
-                  <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">Full Name *</label>
+                  <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
+                    Full Name *
+                  </label>
                   <input
                     type="text"
                     id="name"
@@ -117,7 +165,9 @@ export default function ContactSection() {
                   />
                 </div>
                 <div>
-                  <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">Email Address *</label>
+                  <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
+                    Email Address *
+                  </label>
                   <input
                     type="email"
                     id="email"
@@ -133,7 +183,9 @@ export default function ContactSection() {
 
               <div className="grid md:grid-cols-2 gap-6">
                 <div>
-                  <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-2">Phone Number</label>
+                  <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-2">
+                    Phone Number
+                  </label>
                   <input
                     type="tel"
                     id="phone"
@@ -145,7 +197,9 @@ export default function ContactSection() {
                   />
                 </div>
                 <div>
-                  <label htmlFor="service" className="block text-sm font-medium text-gray-700 mb-2">Service Interest</label>
+                  <label htmlFor="service" className="block text-sm font-medium text-gray-700 mb-2">
+                    Service Interest
+                  </label>
                   <select
                     name="service"
                     id="service"
@@ -153,16 +207,22 @@ export default function ContactSection() {
                     onChange={handleChange}
                     className="w-full px-4 py-3 rounded-lg border bg-white border-gray-300 focus:border-[#3c8d66] focus:outline-none focus:ring-2 focus:ring-[#B3DFC1] cursor-pointer"
                   >
-                    <option value="" disabled>Select a service</option>
+                    <option value="" disabled>
+                      Select a service
+                    </option>
                     {serviceOptions.map(({ value, label }) => (
-                      <option key={value} value={value}>{label}</option>
+                      <option key={value} value={value}>
+                        {label}
+                      </option>
                     ))}
                   </select>
                 </div>
               </div>
 
               <div>
-                <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-2">Message *</label>
+                <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-2">
+                  Message *
+                </label>
                 <textarea
                   id="message"
                   name="message"
