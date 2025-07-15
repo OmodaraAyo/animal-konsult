@@ -20,7 +20,7 @@ export default function AboutUsSection() {
         initial={{ opacity: 0, y: 60 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, ease: "easeOut", delay: 0.3 }}
-        viewport={{ once: true }}
+        // viewport={{ once: true }}
         className="container mx-auto px-4"
       >
         <div className="grid lg:grid-cols-2 gap-16 items-center">
@@ -29,7 +29,7 @@ export default function AboutUsSection() {
             initial={isLargeScreen ? { opacity: 0, x: -40 } : { opacity: 0, y: 40 }}
             whileInView={isLargeScreen ? { opacity: 1, x: 0 } : { opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.4 }}
-            viewport={{ once: true }}
+            // viewport={{ once: true }}
             className="space-y-8"
           >
             <div>
@@ -51,7 +51,7 @@ export default function AboutUsSection() {
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6, delay: 0.3 + index * 0.1 }}
-                  viewport={{ once: true }}
+                  // viewport={{ once: true }}
                   className="flex items-start space-x-3"
                 >
                   <div className="w-6 h-6 bg-[#3c8d66] rounded-full flex items-center justify-center flex-shrink-0 mt-1">
@@ -79,14 +79,14 @@ export default function AboutUsSection() {
             initial={isLargeScreen ? { opacity: 0, x: 40 } : { opacity: 0, y: 40 }}
             whileInView={isLargeScreen ? { opacity: 1, x: 0 } : { opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.6 }}
-            viewport={{ once: true }}
+            // viewport={{ once: true }}
             className="space-y-8"
           >
             <motion.div
               initial={{ opacity: 0, scale: 0.95 }}
               whileInView={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.7, ease: "easeOut", delay: 0.3 }}
-              viewport={{ once: true }}
+              // viewport={{ once: true }}
               className="relative"
             >
               <img
@@ -104,7 +104,7 @@ export default function AboutUsSection() {
                   initial={{ opacity: 0, y: 30 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: 0.5 + index * 0.15 }}
-                  viewport={{ once: true }}
+                  // viewport={{ once: true }}
                   className="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition-shadow"
                 >
                   <div className="flex items-center space-x-3 mb-2">

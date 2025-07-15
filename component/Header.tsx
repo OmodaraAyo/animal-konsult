@@ -1,8 +1,9 @@
 "use client";
 import React, { useEffect, useState } from "react";
-import { Fish, Menu, X } from "lucide-react";
+import { Fish} from "lucide-react";
 import { navLinks } from "@/data/navbar";
 import { motion } from "framer-motion";
+import { smoothScrollTo } from "@/helper/smoothScroll";
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -72,20 +73,22 @@ export default function Header() {
           {/* Desktop Navigation */}
           <nav className="hidden lg:flex items-center space-x-8">
             {navLinks.map(({ href, label }, index) => (
-              <motion.a
+              <motion.button
                 key={href}
-                href={href}
+                onClick={() => {
+                  smoothScrollTo(href.replace('#', ''))
+                }}
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.4 + index * 0.1 }}
-                className={`transition-colors ${
+                className={`transition-colors cursor-pointer ${
                   isScrolled
                     ? "text-white hover:text-white/80"
                     : "text-gray-700 hover:text-[#3c8d66]"
                 }`}
               >
                 {label}
-              </motion.a>
+              </motion.button>
             ))}
             <motion.button
               initial={{ opacity: 0 }}
@@ -130,16 +133,18 @@ export default function Header() {
               className={`flex flex-col space-y-4 mt-4 py-4 border-t border-gray-200 `}
             >
               {navLinks.map(({ href, label }) => (
-                <a
+                <button
                   key={href}
-                  href={href}
-                  className={`hover:text-[#3c8d66] ${
+                  onClick={() => {
+                  smoothScrollTo(href.replace('#', ''));
+                  setIsMenuOpen(false)
+                }}
+                  className={`hover:text-[#3c8d66] cursor-pointer transition-colors${
                     isScrolled ? "text-white" : "text-gray-700"
                   }`}
-                  onClick={() => setIsMenuOpen(false)}
                 >
                   {label}
-                </a>
+                </button>
               ))}
               <button className="bg-[#3c8d66] hover:bg-[#2a6d4d] text-white px-6 py-3 rounded-lg mt-2 cursor-pointer">
                 Get Consultation

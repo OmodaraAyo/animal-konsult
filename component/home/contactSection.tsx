@@ -27,13 +27,13 @@ export default function ContactSection() {
   };
 
   return (
-    <section id="contact" className="py-20 bg-white">
+    <section id="contact" className="py-28 bg-white">
       <div className="container mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 60 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: "easeOut", delay: 0.3 }}
-          viewport={{ once: true }}
+          // viewport={{ once: true }}
           className="text-center mb-16"
         >
           <h2 className="text-4xl font-bold text-gray-900 mb-4">Get In Touch</h2>
@@ -48,7 +48,7 @@ export default function ContactSection() {
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6, ease: "easeOut", delay: 0.4 }}
-            viewport={{ once: true }}
+            // viewport={{ once: true }}
             className="space-y-8"
           >
             <div>
@@ -79,7 +79,7 @@ export default function ContactSection() {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.8 }}
-              viewport={{ once: true }}
+              // viewport={{ once: true }}
               className="bg-[#E6F4EA] p-8 rounded-2xl"
             >
               <h4 className="text-xl font-bold text-gray-900 mb-4">Ready to Get Started?</h4>
@@ -97,7 +97,7 @@ export default function ContactSection() {
             initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6, ease: "easeOut", delay: 0.4 }}
-            viewport={{ once: true }}
+            // viewport={{ once: true }}
             className="bg-gray-50 p-8 rounded-2xl"
           >
             <h3 className="text-2xl font-bold text-gray-900 mb-6">Send us a Message</h3>

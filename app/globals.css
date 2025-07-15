@@ -1,2 +1,6 @@
 @import "tailwindcss";
 @import "hamburgers/dist/hamburgers.min.css";
+
+html {
+  scroll-behavior: smooth;
+}

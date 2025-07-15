@@ -13,7 +13,7 @@ export default function ServiceSection() {
   }, []);
 
   return (
-    <section id="services" className="py-20 bg-white relative z-20">
+    <section id="services" className="py-28 bg-white relative z-20">
       <motion.div
         initial={{ opacity: 0, y: 40 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -21,41 +21,40 @@ export default function ServiceSection() {
         viewport={{ once: true }}
         className="container mx-auto px-4"
       >
-  
-        <div className="text-center mb-16">
-          <motion.h2
-            initial={{ opacity: 0, y: -20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
-            className="text-4xl font-bold text-gray-900 mb-4"
-          >
+        <motion.div
+          initial={{ opacity: 0, y: 60 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, ease: "easeOut", delay: 0.3 }}
+          className="text-center mb-16"
+        >
+          <h2 className="text-4xl font-bold text-gray-900 mb-4">
             Our Services
-          </motion.h2>
-          <motion.p
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            viewport={{ once: true }}
+          </h2>
+          <p
             className="text-xl text-gray-600 max-w-3xl mx-auto"
           >
-            Comprehensive aquaculture solutions tailored to help you succeed in Nigeria's growing fish farming industry
-          </motion.p>
-        </div>
+            Comprehensive aquaculture solutions tailored to help you succeed in
+            Nigeria's growing fish farming industry
+          </p>
+        </motion.div>
 
         {/* Cards */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {serviceSectionData.map((service, index) => (
             <motion.div
               key={index}
-              initial={isLargeScreen ? { opacity: 0, x: 40 } : { opacity: 0, y: 30 }}
-              whileInView={isLargeScreen ? { opacity: 1, x: 0 } : { opacity: 1, y: 0 }}
+              initial={
+                isLargeScreen ? { opacity: 0, x: 40 } : { opacity: 0, y: 30 }
+              }
+              whileInView={
+                isLargeScreen ? { opacity: 1, x: 0 } : { opacity: 1, y: 0 }
+              }
               transition={{
                 duration: 0.5,
                 delay: index * 0.15,
-                ease: "easeOut"
+                ease: "easeOut",
               }}
-              viewport={{ once: true }}
+              // viewport={{ once: true }}
               className="flex flex-col h-full bg-white rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300 overflow-hidden group"
             >
               {/* Image Section */}
@@ -75,7 +74,9 @@ export default function ServiceSection() {
 
               {/* Content Section */}
               <div className="flex flex-col flex-grow p-6">
-                <h3 className="text-xl font-bold text-gray-900 mb-2">{service.title}</h3>
+                <h3 className="text-xl font-bold text-gray-900 mb-2">
+                  {service.title}
+                </h3>
                 <p className="text-gray-600 mb-4">{service.description}</p>
 
                 <ul className="space-y-2 mb-6">
